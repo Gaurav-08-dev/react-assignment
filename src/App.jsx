@@ -1,6 +1,9 @@
 /*
  * Temporary problems array schema
  */
+import { BrowserRouter as  Router, Routes, Route } from "react-router-dom";
+import AllRoutes from "./Routes";
+
 const problems = [{
     title: "201. Bitwise AND of Numbers Range",
     difficulty: "Medium",
@@ -32,9 +35,19 @@ function App() {
      */
 
     return (
-    <div>
-        Finish the assignment! Look at the comments in App.jsx as a starting point
-    </div>
+   <Router>
+       <>
+           <Routes>
+           {AllRoutes.map((routes,index)=>(
+               <Route
+                   key={index}
+                   path={routes.path}
+                   element={<routes.component/>}
+               />
+           ))}
+           </Routes>
+       </>
+   </Router>
   )
 }
 
